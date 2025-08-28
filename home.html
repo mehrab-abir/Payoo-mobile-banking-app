@@ -20,16 +20,16 @@
         <div class="flex flex-row items-center p-4">
             <img src="assets/Group.png" alt="">
             <div class="balanceSection">
-                <h2 class="font-bold text-xl">$<span id="current-balance">0.00</span></h2>
+                <h2 class="font-bold text-xl">$<span id="current-balance">20000</span></h2>
                 <p class="text-[#08080880]">Available Balance</p>
             </div>
         </div>
-        <button class="btn bg-[white] text-[#08080880] border border-[#0808081a] rounded-lg mr-5"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Logout</button>
+        <button class="btn bg-[white] text-[#08080880] border border-[#0808081a] rounded-lg mr-5" id="logout-btn"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i>Logout</button>
     </div>
 
     <div class="main-body bg-[white] p-4 max-w-lg mx-auto rounded-b-lg">
         <h1 class="text-2xl font-bold">🔥 Welcome to Payooo!</h1>
-        <p class="text-[#08080880] my-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+        <p class="text-[#08080880] my-3">Enjoy easy and convenient financial services with us. Cashout charge is low and ... </p>
 
         <div class="featureBtns grid grid-cols-3 gap-4">
             <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
@@ -127,17 +127,17 @@
                 <div>
                     <label for="" class="font-bold">User Account Number</label>
                     <br>
-                    <input type="text" placeholder="Enter Account Number" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="text" placeholder="Enter Account Number" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="user-account-number" />
                 </div>
                 <div class="mt-5">
                     <label for="" class="font-bold">Amount</label>
                     <br>
-                    <input type="number" placeholder="Enter Amount" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="number" placeholder="Enter Amount" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="amount-to-transfer"/>
                 </div>
                 <div class="mt-5">
                     <label for="" class="font-bold">4 Digit PIN</label>
                     <br>
-                    <input type="text" placeholder="Enter 4 Digit PIN" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="text" placeholder="Enter 4 Digit PIN" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="pin-to-transfer"/>
                 </div>
                 <button class="btn bg-[#0874F2] text-white mt-5 w-full rounded-full" id="transfer-money-btn">Transfer</button>
             </form>
@@ -150,7 +150,7 @@
                 <div>
                     <label for="" class="font-bold">Enter Bonus Coupon</label>
                     <br>
-                    <input type="text" placeholder="Enter Bonus Coupon" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="text" placeholder="Enter Bonus Coupon" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="coupon"/>
                 </div>
                 <button class="btn bg-[#0874F2] text-white mt-5 w-full rounded-full" id="get-bonus-btn">Get Bonus</button>
             </form>
@@ -163,7 +163,7 @@
                 <div>
                     <label for="" class="font-bold">Select to Pay</label>
                     <br>
-                    <select class="select w-full bg-[#f4f5f7] rounded-full mt-3">
+                    <select class="select w-full bg-[#f4f5f7] rounded-full mt-3" id="bill-select">
                         <option disabled selected>Select...</option>
                         <option>Electricity</option>
                         <option>Gas</option>
@@ -174,17 +174,17 @@
                 <div class="mt-5">
                     <label for="" class="font-bold">Biller Account Number</label>
                     <br>
-                    <input type="text" placeholder="Enter Account Number" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="text" placeholder="Enter Account Number" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="biller-account-number" />
                 </div>
                 <div class="mt-5">
                     <label for="" class="font-bold">Amount</label>
                     <br>
-                    <input type="number" placeholder="Enter Amount" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="number" placeholder="Enter Amount" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="amount-to-pay-bill"/>
                 </div>
                 <div class="mt-5">
                     <label for="" class="font-bold">4 Digit PIN</label>
                     <br>
-                    <input type="text" placeholder="Enter 4 Digit PIN" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" />
+                    <input type="text" placeholder="Enter 4 Digit PIN" class="input bg-[#f4f5f7] mt-3 rounded-full w-full" id="pin-to-pay-bill"/>
                 </div>
                 <button class="btn bg-[#0874F2] text-white mt-5 w-full rounded-full" id="pay-bill-btn">Pay Bill</button>
             </form>
