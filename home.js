@@ -33,6 +33,15 @@ addMoneyBtn.addEventListener('click',function(event){
         availableBalance = (availableBalance + amountToAdd).toFixed(2);
         balanceContainer.innerText = availableBalance;
 
+        //making an object using the transaction data
+        const addMoney = {
+            transactionName : 'Add Money',
+            transactionAmount : amountToAdd,
+            date : new Date().toLocaleDateString(),
+            time : new Date().toLocaleTimeString()
+        };
+        transactions.push(addMoney);
+
         //reseting all input field
         amountInput.value = "";
         document.getElementById('pin-to-add-money').value = "";
@@ -72,6 +81,16 @@ cashOutBtn.addEventListener('click',function(event){
         availableBalance = (availableBalance - amountToCash).toFixed(2);
         balanceContainer.innerText = availableBalance;
 
+        //making an object using the transaction data
+        const cashOut = {
+            transactionName : 'Cash Out',
+            transactionAmount : amountToCash,
+            date : new Date().toLocaleDateString(),
+            time : new Date().toLocaleTimeString()
+        };
+
+        transactions.push(cashOut);
+
         //reseting all input field
         amountInput.value = "";
         pinInput.value = "";
@@ -109,6 +128,16 @@ transferMoneyBtn.addEventListener('click',function(event){
         
         availableBalance = (availableBalance - amountToTransfer).toFixed(2);
         balanceContainer.innerText = availableBalance;
+
+        //making an object using the transaction data
+        const transferMoney = {
+            transactionName : "Transfer Money",
+            transactionAmount : amountToTransfer,
+            date : new Date().toLocaleDateString(),
+            time : new Date().toLocaleTimeString()
+        };
+
+        transactions.push(transferMoney);
 
         //reseting all input field
         amountInput.value = "";
@@ -152,6 +181,16 @@ payBillBtn.addEventListener('click',function(event){
         availableBalance = (availableBalance - amountToPayBill).toFixed(2);
         balanceContainer.innerText = availableBalance;
 
+        //making an object using the transaction data
+        const billPayment = {
+            transactionName : selectedBill + " Bill",
+            transactionAmount : amountToPayBill,
+            date : new Date().toLocaleDateString(),
+            time : new Date().toLocaleTimeString()
+        };
+
+        transactions.push(billPayment);
+
         //reseting all input field
         amountInput.value = "";
         document.getElementById('pin-to-pay-bill').value = "";
@@ -163,4 +202,101 @@ payBillBtn.addEventListener('click',function(event){
         alert(`Invalid Credentials. Use ${savedAccountNumber} as account number and ${savedPinNumber} as 4 digit PIN`);
     }
 
+})
+
+
+//display the only form that is clicked
+function displayForm(id){
+    const forms = document.getElementsByClassName("form")
+
+    for(const form of forms){
+        form.style.display = "none";
+    }
+
+    document.getElementById(id).style.display = "block";
+    document.getElementById("latest-transactions").style.display = "none";
+}
+
+document.getElementById("addMoney").addEventListener('click',function(){
+    displayForm("add-money-form");
+})
+document.getElementById("cashOut").addEventListener('click',function(){
+    displayForm("cash-out-form");
+})
+document.getElementById("transferMoney").addEventListener('click',function(){
+    displayForm("transfer-money-form");
+})
+document.getElementById("getBonus").addEventListener('click',function(){
+    displayForm("get-bonus-form");
+})
+document.getElementById("payBill").addEventListener('click',function(){
+    displayForm("pay-bill-form");
+})
+
+//for transaction history
+let transactions = [];
+
+document.getElementById("transactions").addEventListener('click',function(){
+    displayForm("transaction-history");
+
+    let transactionsContainer = document.querySelector('.transactions-container');
+
+    //removing all existing transaction card everytime the 'transactions' button is clicked, so we only get the latest data, not the old data repeatedly
+    transactionsContainer.innerHTML = ""; 
+    
+    for(const transaction of transactions){
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <div class="singleTransaction flex flex-row items-center justify-between bg-[white] p-3 mt-3">
+                    <div class="flex flex-row items-center justify-between">
+                        <img src="./assets/transaction1.png" alt="" class="mr-4 bg-[#f4f5f7] p-4 rounded-full">
+                        <div>
+                            <h1 class="text-lg font-bold">${transaction.transactionName}</h1>
+                            <p>Amount: ${transaction.transactionAmount}</p>
+                            <p>${transaction.date} - ${transaction.time}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+        `
+
+        transactionsContainer.appendChild(div);
+    }
+})
+
+
+//active buttons functionality
+let featureBtns = document.querySelectorAll('.singleBtn');
+
+function activeButton(id){
+
+    //removing blue border and bg from all buttons first
+    for(const button of featureBtns){
+        button.style.border = "1px solid #d1d5dc";
+        button.classList.remove("bg-[#dfeeff]");
+    }
+    
+    //now adding blue border and bg only for the clicked/active button
+    document.getElementById(id).style.border = "1px solid #7676ff"; 
+    document.getElementById(id).classList.add("bg-[#dfeeff]");
+}
+
+document.getElementById('addMoney').addEventListener('click',function(){
+    activeButton("addMoney");
+})
+document.getElementById('cashOut').addEventListener('click',function(){
+    activeButton("cashOut");
+})
+document.getElementById('transferMoney').addEventListener('click',function(){
+    activeButton("transferMoney");
+})
+document.getElementById('getBonus').addEventListener('click',function(){
+    activeButton("getBonus");
+})
+document.getElementById('payBill').addEventListener('click',function(){
+    activeButton("payBill");
+})
+document.getElementById('transactions').addEventListener('click',function(){
+    activeButton("transactions");
+    // console.log(transactions);
 })

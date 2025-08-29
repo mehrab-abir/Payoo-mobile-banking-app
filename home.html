@@ -14,7 +14,7 @@
     <!-- font awesome cdn  -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="bg-[#f4f5f7]">
+<body class="bg-[#f4f5f7] h-auto">
 
     <div class="header flex items-center justify-between max-w-lg mx-auto bg-[white] border-b border-gray-300">
         <div class="flex flex-row items-center p-4">
@@ -32,29 +32,29 @@
         <p class="text-[#08080880] my-3">Enjoy easy and convenient financial services with us. Cashout charge is low and ... </p>
 
         <div class="featureBtns grid grid-cols-3 gap-4">
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
+            <div id="addMoney" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/wallet1.png" alt="">
                 <p>Add Money</p>
             </div>
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
+            <div id="cashOut" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/send1.png" alt="">
                 <p>Cash Out</p>
             </div>
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
+            <div id="transferMoney" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/money1.png" alt="">
                 <p>Transfer Money</p>
             </div>
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
+            <div id="getBonus" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/bonus1.png" alt="">
                 <p>Get Bonus</p>
             </div>
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+            <div id="payBill" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/purse1.png" alt="">
                 <p>Pay Bill</p>
             </div>
-            <div class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+            <div id="transactions" class="singleBtn border border-gray-300 rounded-lg flex flex-col items-center justify-center py-5 cursor-pointer">
                 <img src="assets/transaction1.png" alt="">
-                <p>Transections</p>
+                <p>Transactions</p>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
     <div class="all-forms max-w-lg mx-auto">
 
         <!-- add money form  -->
-        <div class="add-money-form">
+        <div id="add-money-form" class="form" style="display:none">
             <h1 class="text-2xl font-bold mt-5 ml-4">Add Money</h1>
 
             <form action="" class="w-full bg-[white] p-8 rounded-xl mt-5">
@@ -96,9 +96,13 @@
                 <button class="btn bg-[#0874F2] text-white mt-5 w-full rounded-full" id="add-money-btn">Add Money</button>
             </form>
         </div>
+        
+        <div id="latest-transactions">
+            <h1 class="mr-5 mt-5 text-2xl font-bold">Latest Transactions</h1>
+        </div>
 
         <!-- cash out form  -->
-        <div class="cash-out-form">
+        <div id="cash-out-form" class="form" style="display:none">
             <h1 class="text-2xl font-bold mt-5 ml-4">Cash Out</h1>
             <form action="" class="w-full bg-[white] p-8 rounded-xl mt-5">
                 <div>
@@ -121,7 +125,7 @@
         </div>
 
         <!-- transfer money form  -->
-        <div class="transfer-money-form">
+        <div id="transfer-money-form" class="form" style="display:none">
             <h1 class="text-2xl font-bold mt-5 ml-4">Transfer Money</h1>
             <form action="" class="w-full bg-[white] p-8 rounded-xl mt-5">
                 <div>
@@ -144,7 +148,7 @@
         </div>
 
         <!-- get bonus form section  -->
-         <div class="get-bonus-form">
+         <div id="get-bonus-form" class="form pb-16" style="display:none">
             <h1 class="text-2xl font-bold mt-5 ml-4">Get Bonus</h1>
             <form action="" class="w-full bg-[white] p-8 rounded-xl mt-5">
                 <div>
@@ -157,7 +161,7 @@
          </div>
 
          <!-- pay bill form section -->
-        <div class="div pay-bill-form">
+        <div id="pay-bill-form" class="form" style="display:none">
             <h1 class="text-2xl font-bold mt-5 ml-4">Pay Bill</h1>
             <form action="" class="w-full bg-[white] p-8 rounded-xl mt-5">
                 <div>
@@ -189,11 +193,28 @@
                 <button class="btn bg-[#0874F2] text-white mt-5 w-full rounded-full" id="pay-bill-btn">Pay Bill</button>
             </form>
         </div>
+
+        <!-- transactions history  -->
+         <div id="transaction-history" class="form" style="display: none;">
+            <div class="flex items-center justify-between px-4">
+                <h1 class="text-2xl font-bold mt-5">Transactions History</h1>
+                <p class="text-[#08080880] cursor-pointer">View all</p>
+            </div>
+
+            <div class="transactions-container">
+                <!-- every single transactions will be here dynamically  -->
+            </div>
+            
+
+
+         </div>
         
     </div>
 
     
-    
+    <footer id="footer" class="p-10 bg-[white] mt-10 text-center">
+        <p>&copy;Copyrights Reserved By Mehrab Jalil Abir - 2025</p>
+    </footer>
 
     <script src="home.js"></script>
 </body>
