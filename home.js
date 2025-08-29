@@ -204,6 +204,15 @@ payBillBtn.addEventListener('click',function(event){
 
 })
 
+//get bonus section
+let getBonusButton = document.getElementById('get-bonus-btn');
+getBonusButton.addEventListener('click',function(event){
+    event.preventDefault();
+
+    alert("No Coupon Available Right Now.");
+
+})
+
 
 //display the only form that is clicked
 function displayForm(id){
@@ -228,6 +237,7 @@ document.getElementById("transferMoney").addEventListener('click',function(){
 })
 document.getElementById("getBonus").addEventListener('click',function(){
     displayForm("get-bonus-form");
+    alert("No Coupon Available Right Now.");
 })
 document.getElementById("payBill").addEventListener('click',function(){
     displayForm("pay-bill-form");
@@ -251,7 +261,7 @@ document.getElementById("transactions").addEventListener('click',function(){
                     <div class="flex flex-row items-center justify-between">
                         <img src="./assets/transaction1.png" alt="" class="mr-4 bg-[#f4f5f7] p-4 rounded-full">
                         <div>
-                            <h1 class="text-lg font-bold">${transaction.transactionName}</h1>
+                            <h1 class="font-bold">${transaction.transactionName}</h1>
                             <p>Amount: ${transaction.transactionAmount}</p>
                             <p>${transaction.date} - ${transaction.time}</p>
                         </div>
