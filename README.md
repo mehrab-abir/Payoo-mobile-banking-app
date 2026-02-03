@@ -3,7 +3,7 @@
 # 💳 Mobile Banking App Simulation (Frontend)
 
 A simple **frontend-only mobile banking app simulation** built with vanilla JavaScript.  
-This project mimics common mobile wallet features like adding money, cashing out, transferring funds, paying bills, and viewing transaction history — all handled on the client side.
+This project mimics common mobile wallet features like adding money, cashing out, transferring funds, paying bills, and viewing transaction history- all handled on the client side.
 
 ## 🛠️ Tech Stack
 
@@ -11,7 +11,7 @@ This project mimics common mobile wallet features like adding money, cashing out
 - **Tailwind CSS (CDN)**
 - **Vanilla JavaScript**
 
-visit: https://mehrab-abir.github.io/Payoo-mobile-banking-app
+### visit: https://mehrab-abir.github.io/Payoo-mobile-banking-app
 
 ## Features
 
