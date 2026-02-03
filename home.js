@@ -7,7 +7,7 @@ logOutBtn.addEventListener('click',function(){
 //add money section
 let addMoneyBtn = document.querySelector('#add-money-btn');
 
-const savedAccountNumber = "1010999"
+const savedAccountNumber = "1010"
 const savedPinNumber = "1234";
 
 addMoneyBtn.addEventListener('click',function(event){
